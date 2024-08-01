@@ -11,12 +11,12 @@ import lombok.*;
 @Getter
 @Setter
 public class OrderDetailDTO {
-    @JsonProperty("order_id")
+    @JsonProperty("id_order")
     @Min(value=1, message = "Order's ID must be > 0")
     private Long orderId;
 
     @Min(value=1, message = "Product's ID must be > 0")
-    @JsonProperty("product_id")
+    @JsonProperty("id_product")
     private Long productId;
 
     @Min(value=0, message = "Product's ID must be >= 0")
@@ -28,7 +28,7 @@ public class OrderDetailDTO {
 
     @Min(value=0, message = "total_money must be >= 0")
     @JsonProperty("total_money")
-    private int totalMoney;
+    private Float totalMoney;
 
     private String color;
 }

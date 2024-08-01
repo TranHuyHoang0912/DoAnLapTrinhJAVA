@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 //@Validated
 public class CategoryController {
     //Hiện tất cả các categories
-    @GetMapping("") //http://localhost:8088/api/v1/categories?page=1&limit=10
+    @GetMapping("") //http://localhost:7070/api/v1/categories?page=1&limit=10
     public ResponseEntity<String> getAllCategories(
             @RequestParam("page")     int page,
             @RequestParam("limit")    int limit
