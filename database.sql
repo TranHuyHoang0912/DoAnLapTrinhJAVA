@@ -55,7 +55,7 @@ CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(350) COMMENT 'Tên sản phẩm',
     price FLOAT NOT NULL CHECK (price >= 0),
-    url_product VARCHAR(300) DEFAULT '',
+    thumbnail VARCHAR(300) DEFAULT '',
     description LONGTEXT DEFAULT '',
     created_at DATETIME,
     updated_at DATETIME,
