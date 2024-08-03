@@ -1,12 +1,9 @@
 package com.project.shopappbaby.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -14,11 +11,11 @@ import java.sql.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class User {
+@Builder
+public class User extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "fullname", length = 100)
     private String fullName;
@@ -38,7 +35,7 @@ public class User {
     private Date dateOfBirth;
 
     @Column(name = "facebook_account_id")
-    private int facebookAccountID;
+    private int facebookAccountId;
 
     @Column(name = "google_account_id")
     private int googleAccountId;

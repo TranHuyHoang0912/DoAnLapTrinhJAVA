@@ -1,13 +1,10 @@
 package com.project.shopappbaby.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "orders")
@@ -15,14 +12,14 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "use_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "fullname", length = 100)
@@ -31,16 +28,16 @@ public class Order {
     @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "phone_number", length = 10, nullable = false)
+    @Column(name = "phone_number",nullable = false, length = 100)
     private String phoneNumber;
 
-    @Column(name = "address", length = 200)
+    @Column(name = "address", length = 100)
     private String address;
 
     @Column(name = "note", length = 100)
     private String note;
 
-    @Column(name = "oder_date")
+    @Column(name="order_date")
     private LocalDateTime orderDate;
 
     @Column(name = "status")
@@ -48,6 +45,9 @@ public class Order {
 
     @Column(name = "total_money")
     private Integer totalMoney;
+
+    @Column(name = "shipping_method")
+    private String shippingMethod;
 
     @Column(name = "shipping_address")
     private String shippingAddress;
@@ -62,8 +62,6 @@ public class Order {
     private String paymentMethod;
 
     @Column(name = "active")
-    private Boolean active;
-
-
+    private Boolean active;//thuộc về admin
 
 }
