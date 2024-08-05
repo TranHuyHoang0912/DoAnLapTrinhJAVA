@@ -2,7 +2,9 @@ package com.project.shopappbaby.controllers;
 
 import com.project.shopappbaby.dtos.UserDTO;
 import com.project.shopappbaby.dtos.UserLoginDTO;
+import com.project.shopappbaby.services.IUserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -16,7 +18,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/users")
+@RequiredArgsConstructor
 public class UserController {
+    private final IUserService userService;
     @PostMapping("/register")
     public ResponseEntity<?> createUser(
             @Valid @RequestBody UserDTO userDTO,
@@ -33,6 +37,7 @@ public class UserController {
             if(!userDTO.getPassword().equals(userDTO.getRetypePassword())){
                 return ResponseEntity.badRequest().body("Password does not match");
             }
+            userService.createUser(userDTO);
             return ResponseEntity.ok("Register successfully");
         }  catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -42,7 +47,20 @@ public class UserController {
     public ResponseEntity<String> login(
             @Valid @RequestBody UserLoginDTO userLoginDTO) {
         // Kiểm tra thông tin đăng nhập và sinh token
+        String token = userService.login(userLoginDTO.getPhoneNumber(), userLoginDTO.getPassword());
         // Trả về token trong response
-        return ResponseEntity.ok("some token");
+        return ResponseEntity.ok(token);
     }
+//    {
+//            "fullname":"Tran Le Minh Tan",
+//            "phone_number":"012345678",
+//            "address":"Los Santos",
+//            "password":"Tan201204",
+//            "retype_password":"Tan201205",
+//            "date_of_birth":"2004-12-20",
+//            "facebook_account_id":0,
+//            "google_account_id":0,
+//            "role_id":1
+//
+//    }
 }
