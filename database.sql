@@ -55,7 +55,7 @@ CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(350) COMMENT 'Tên sản phẩm',
     price FLOAT NOT NULL CHECK (price >= 0),
-    thumbnail VARCHAR(300) DEFAULT '',
+    url_product VARCHAR(300) DEFAULT '',
     description LONGTEXT DEFAULT '',
     created_at DATETIME,
     updated_at DATETIME,
@@ -95,7 +95,7 @@ ALTER TABLE orders ADD COLUMN `payment_method` VARCHAR(100);
 
 ALTER TABLE orders ADD COLUMN active TINYINT(1);
 
-ALTER TABLE orders 
+ALTER TABLE orders
 MODIFY COLUMN status ENUM('pending', 'processing', 'shipped', 'delivered', 'cancelled') 
 COMMENT 'Trạng thái đơn hàng';
 
