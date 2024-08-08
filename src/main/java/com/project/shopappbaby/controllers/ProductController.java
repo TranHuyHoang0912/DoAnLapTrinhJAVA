@@ -7,6 +7,7 @@ import com.project.shopappbaby.models.ProductImage;
 import com.project.shopappbaby.responses.ProductListResponse;
 import com.project.shopappbaby.responses.ProductResponse;
 import com.project.shopappbaby.services.IProductService;
+import com.project.shopappbaby.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -151,14 +152,27 @@ public class ProductController {
     }
     //http://localhost:8088/api/v1/products/6
     @GetMapping("/{id}")
-    public ResponseEntity<String> getProductById(
-            @PathVariable("id") String productId
+    //Trả về nhiều giá trị khác nhau
+    public ResponseEntity<?> getProductById(
+            @PathVariable("id") Long productId
     ) {
-        return ResponseEntity.ok("Product with ID: " + productId);
+        try {
+            Product existingProduct = productService.getProductById(productId);//
+            return ResponseEntity.ok(ProductResponse.fromProduct(existingProduct));
+
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable long id) {
-        return ResponseEntity.ok(String.format("Product with id = %d deleted successfully", id));
+        try {
+            productService.deleteProduct(id);//
+            //Kiểm tra xóa có product có xóa đi image hay không
+            return ResponseEntity.ok(String.format("Product with id = %d deleted successfully", id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
     @PostMapping("/generateFakeProducts")
     private ResponseEntity<String> generateFakeProducts() {
@@ -174,7 +188,7 @@ public class ProductController {
                     .price((float)faker.number().numberBetween(10, 90_000_000))
                     .description(faker.lorem().sentence())
                     .urlProduct("")
-                    .categoryId((long)faker.number().numberBetween(2, 5))
+                    .categoryId((long)faker.number().numberBetween(1, 2))
                     .build();
             try {
                 productService.createProduct(productDTO);
@@ -184,6 +198,19 @@ public class ProductController {
         }
         return ResponseEntity.ok("Fake Products created successfully");
         // neu tao ko thanh cong thi return va tra ve 1 string
+    }
+    //update a product
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateProduct(
+            @PathVariable long id,
+            @RequestBody ProductDTO productDTO) {
+        try {
+            Product updatedProduct = productService.updateProduct(id, productDTO);
+            return ResponseEntity.ok(updatedProduct);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
 }

@@ -52,19 +52,9 @@ public class ProductService implements IProductService{
     @Override
     public Page<ProductResponse> getAllProducts(PageRequest pageRequest) {
         // Lấy danh sách sản phẩm theo trang(page) và giới hạn(limit)
-        return productRepository.findAll(pageRequest).map(product -> {// map() để ánh xạ
-            ProductResponse productRespone= ProductResponse.builder()
-                    .name(product.getName())
-                    .price(product.getPrice())
-                    .urlProduct(product.getUrlProduct())
-                    .description(product.getDescription())
-                    .categoryId(product.getCategory().getId())
-                    .build();
-            productRespone.setCreatedAt(product.getCreatedAt());
-            productRespone.setUpdatedAt(product.getUpdatedAt());
-            return productRespone;
-
-        });
+        return productRepository
+                .findAll(pageRequest)
+                .map(ProductResponse::fromProduct);// map() để ánh xạ
     }
 
     @Override
@@ -108,7 +98,7 @@ public class ProductService implements IProductService{
             Long productId,
             ProductImageDTO productImageDTO) throws Exception {
         Product existingProduct = productRepository
-                .findById(productId)
+                .findById(productImageDTO.getProductId())
                 .orElseThrow(() ->
                         new DataNotFoundException(
                                 "Cannot find product with id: "+productImageDTO.getProductId()));
