@@ -1,6 +1,7 @@
 package com.project.shopappbaby.services;
 
 import com.project.shopappbaby.dtos.OrderDTO;
+import com.project.shopappbaby.exceptions.DataNotFoundException;
 import com.project.shopappbaby.models.Order;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface IOrderService {
     Order createOrder(OrderDTO orderDTO) throws Exception;
     Order getOrder(Long id);
-    Order updateOrder(Long id, OrderDTO orderDTO);
+    Order updateOrder(Long id, OrderDTO orderDTO) throws DataNotFoundException;
     void deleteOrder(Long id);
-    List<Order> getAllOrders(Long userId);
+    List<Order> findByUserId(Long userId);
 }
