@@ -17,7 +17,7 @@ import java.util.Date;
 @Setter
 public class OrderDTO {
 
-    @JsonProperty("id_user")
+    @JsonProperty("user_id")
     @Min(value = 1, message = "User's ID must be > 0")
     private Long userId;
 
