@@ -1,0 +1,133 @@
+<div class="login_header0">
+    <a href="#">
+    <img class="img_header_login" src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-6/459205218_511798364791049_4118271348643994173_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHdPP2uwNBpH0J15FhqBMEOV1Rjg3jVjA1XVGODeNWMDaULIqR1M37_nt3kIRqpMaFd3MZHFnUMwMHiGb1qm2f4&_nc_ohc=HAcWC8K6TCEQ7kNvgFEdzbI&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5BnJ1AUg2OvMtCE6D2i6sN&oh=00_AYDy5vM6WRGHOo1RHmy5Pyk96Layejo1jtF6-ErPCmtVVw&oe=66E4C39A" alt="">
+    </a>
+    <div class="text_header">
+        <h2> |</h2>
+    </div>
+    <div class="text_header2">
+        <h2> Đăng Kí</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <form #registerForm="ngForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="register-form mx-auto">
+                <h3 class="register-header">Ba mẹ đăng ký tài khoản</h3>
+                <div class="form-group">                   
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="phoneNumber"
+                        (input)="onPhoneNumberChange()"
+                        name="phone"
+                        placeholder="Ba mẹ nhập số điện thoại tại đây" required
+                        (focus)="registerForm.form.markAsTouched()"
+                        required id="phoneNumber">
+                    <div class="divider-nospace"></div>
+                    <p class="text-danger" 
+                        *ngIf="phoneNumber.length < 6 
+                        && registerForm.form.touched">Số điện thoại phải có ít nhất 6 ký tự</p>
+                </div>
+                <div class="mt-3"></div>
+                <div class="form-group password-field">
+                    
+                    <input type="password" 
+                        [(ngModel)]="password"                            
+                        name="password"
+                        placeholder="Ba mẹ nhập mật khẩu tại đây" required
+                        class="form-control" id="password">
+                    <i class="password-toggle fas fa-eye-slash"></i>
+                    <div class="divider-nospace"></div>
+                    <p class="text-danger" 
+                        *ngIf="password.length < 3 && registerForm.form.touched">
+                        Mật khẩu phải có ít nhất 3 ký tự
+                    </p>
+                </div>
+                <div class="mt-3"></div>
+                <div class="form-group password-field">
+                   
+                    <input type="password" 
+                        placeholder="Ba mẹ điền lại mật khẩu" 
+                        [(ngModel)]="retypePassword" 
+                        name="retypePassword"
+                        (input)="registerForm.form.markAsTouched(); checkPasswordsMatch()"
+                        required
+                        class="form-control" id="retype-password">
+                    <i class="password-toggle fas fa-eye-slash"></i>
+                    <div class="divider-nospace"></div>
+                    <p class="text-danger" 
+                        *ngIf="retypePassword.length < 3 && registerForm.form.touched">
+                        Mật khẩu phải có ít nhất 3 ký tự
+                    </p>
+                    <p class="text-danger" 
+                    *ngIf="registerForm.controls['retypePassword']?.hasError('passwordMismatch') 
+                            && registerForm.form.touched">
+                    Mật khẩu không khớp
+                    </p>
+                </div>
+                <div class="mt-3"></div>
+                <div class="form-group">
+                    
+                    <input type="text" 
+                        [(ngModel)]="fullName"
+                        name="fullName"
+                        class="form-control" 
+                        placeholder="Ba mẹ nhập họ tên tại đây" required
+                        id="full-name">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                <div class="mt-3"></div>
+                    
+                    <!-- Thêm [(ngModel)] để thực hiện 2-way data binding -->
+                    <input type="date" 
+                        class="form-control" 
+                            required
+                            id="date-of-birth" 
+                            [(ngModel)]="dateOfBirth"
+                            name="dateOfBirth"
+                            (input)="registerForm.form.markAsTouched(); checkAge()">
+                            
+                    <div class="divider-nospace"></div>
+                    <p class="text-danger" 
+                    *ngIf="registerForm.controls['dateOfBirth']?.hasError('invalidAge') 
+                            && registerForm.form.touched">
+                        Ba mẹ nhập năm sinh chưa chính xác, cửa hàng yêu cầu đủ 18 tuổi
+                    </p>
+                  </div>
+                  
+                <div class="mt-3"></div>
+                <div class="form-group">
+                    
+                    <input type="text" 
+                        [(ngModel)]="address"
+                        name="address"
+                        class="form-control" 
+                        placeholder="Ba mẹ nhập địa chỉ tại đây" required
+                        id="address">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check checkbox-text">
+                        <span style="display: flex;">
+                            <input type="checkbox" 
+                                [(ngModel)]="isAccepted"
+                                name="isAccepted"
+                                class="form-check-input" id="agree">
+                            <label class="form-check-label text-start" for="agree">
+                                Tôi đồng ý với các điều khoản và điều kiện</label>
+                        </span>
+                    </div>
+                </div>
+                <button type="button" 
+                    (click)="register()"
+                    class="register-button">Đăng ký</button>
+                <div class="divider"></div>
+                <p class="text-center">Ba mẹ đã có tài khoản? <span>
+                    <a href="/login" class="register-link">Đăng nhập</a></span></p>
+            </div>
+        </div>
+    </div>
+</form>
+</div>

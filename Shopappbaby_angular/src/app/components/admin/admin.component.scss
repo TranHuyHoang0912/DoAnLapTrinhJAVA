@@ -1,0 +1,47 @@
+.container-fluid {
+    background-color: white;
+    padding-left: 0 !important; /* Remove left padding */
+    padding-right: 0 !important; /* Remove right padding */
+}
+.justify-content-between{
+    background-color: #FF469E;
+}
+.btn-sm{
+    background-color: rgba(228, 26, 134, 0.986);
+}
+.header {
+    background-color: #b5819b;
+    /* Header background color */
+    color: white;
+    /* Text color */
+    padding: 5px;
+    /* Add padding to the header */
+    text-align: center;
+    /* Center-align text in the header */
+}
+.bg-success{
+    background-color: #ff469e;
+}
+#sidebar {
+    background-color: #f06cac !important; /* Primary color */
+    color: white; /* Text color */
+    height: 100vh;
+    overflow-y: auto; /* Add scrollbars if content overflows */
+}
+/* Custom CSS for sidebar links */
+#sidebar a {
+    color: rgb(74, 73, 73); /* Text color for links */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Add a border line at the top of each link */
+    padding: 10px 15px; /* Add padding to links for spacing */
+}
+/* Custom CSS for active link */
+#sidebar a.active {
+    font-weight: bold; /* Highlight active link */
+}
+/* Change background color on hover */
+#sidebar a:hover {
+    background-color: #ead1e5; /* Change the background color on hover */
+}
+.icon {
+    padding: 5px;
+}

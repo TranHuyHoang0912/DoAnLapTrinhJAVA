@@ -1,0 +1,38 @@
+server:
+  port: 7070
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/shopappbaby?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    default-locale: en
+api:
+  prefix: api/v1
+jwt:
+  expiration: 31104000 #1nam = 12*30*24*60*60
+  secretKey: Q+aq8M9WeXUPX01waMih68w2Ko+H/ArAahBciS8ZaSM=
+payment:
+  vnPay:
+    url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+    tmnCode: 8MLUNQTG
+    secretKey: BJ5U65SEQWGWEPB6G5SW3UCDP6G7FT4T
+    returnUrl: http://localhost:7070/api/v1/payment/vn-pay-callback
+    version: 2.1.0
+    command: pay
+    orderType: other

@@ -1,0 +1,39 @@
+@import '../../styles/shared-styles.scss';
+
+.container {
+
+    margin-top: 80px;
+}
+.intro-section {
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-control {
+    background-color: #F2F2F2;
+    color: #000000;
+}
+input.form-control{
+    border: 2px solid #ff469e;
+}
+.form-control:focus {
+    border-color: white;
+ 
+}
+.form-label {
+    color: #000000;
+    font-weight: bold;
+}
+.product-header {
+    color: $shopapp-tint-color;
+
+}
+.product-order {
+    color: $shopapp-title-color;
+}
+.btn-primary{
+    background-color: #FF379B;
+    border: none;
+    border-radius: 12px;
+}

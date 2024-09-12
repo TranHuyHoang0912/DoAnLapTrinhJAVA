@@ -1,0 +1,78 @@
+<div class="login_header0">
+    <a href="#">
+    <img class="img_header_login" src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-6/459205218_511798364791049_4118271348643994173_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHdPP2uwNBpH0J15FhqBMEOV1Rjg3jVjA1XVGODeNWMDaULIqR1M37_nt3kIRqpMaFd3MZHFnUMwMHiGb1qm2f4&_nc_ohc=HAcWC8K6TCEQ7kNvgFEdzbI&_nc_ht=scontent.fsgn5-15.fna&_nc_gid=A5BnJ1AUg2OvMtCE6D2i6sN&oh=00_AYDy5vM6WRGHOo1RHmy5Pyk96Layejo1jtF6-ErPCmtVVw&oe=66E4C39A" alt="">
+    </a>
+    <div class="text_header">
+        <h2> |</h2>
+    </div>
+    <div class="text_header2">
+        <h2> Đăng Nhập</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row login-content">
+        <div class="col-md-6">
+            <div class="login-form">
+                <h2 class="login-header">Vui chào đón ba mẹ,</h2>
+                <h4 class="login-header-2">Đăng nhập hoặc Đăng ký ngay tài khoản</h4>
+                <div class="form-group">
+                    <label for="phoneNumber"></label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="phoneNumber"
+                            (input)="onPhoneNumberChange()"
+                            placeholder="Ba mẹ nhập số điện thoại tại đây" required
+                            name="phone"
+                            (focus)="loginForm.form.markAsTouched()"
+                    id="phoneNumber">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group password-field">
+                    <label for="password"></label>
+                    <input type="password" 
+                        [(ngModel)]="password" 
+                        name="password"
+                        placeholder="Ít nhất 3 ký tự" required
+                        class="form-control" id="password">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check checkbox-text">
+                      <span style="display: flex;">
+                        <input type="checkbox" 
+                            class="form-check-input" 
+                            id="remember" 
+                            [(ngModel)]="rememberMe">
+                        <label class="form-check-label text-start" for="remember">
+                          Ghi nhớ đăng nhập</label>
+                      </span>
+                      <a href="#" class="register-link">Quên mật khẩu</a>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <select class="form-control access-right"
+                        [(ngModel)]="selectedRole">
+                        <option selected disabled>Quyền đăng nhập</option>
+                        <option *ngFor="let role of roles" [ngValue]="role">
+                            {{ role.name }}
+                        </option>
+                    </select>
+                </div>
+                  
+                <button 
+                    type="button" 
+                    (click)="login()"
+                    class="login-button">Đăng nhập</button>
+                <div class="divider"></div>
+                <p class="text-center">Ba mẹ chưa đăng ký? <span>
+                    <a class="register-link" 
+                        (click)="createAccount()">Tạo tài khoản ngay</a>
+                </span></p>                                                     
+            </div>   
+        </div>
+        <!-- <div class="col-md-6">
+            <img class="img_login" src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/459177816_511798451457707_8815106190211422066_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHewhBpDUkvLkwqFBiW-GYwoedAiDRWMGih50CINFYwaM9BYTWH62E_Oe9I-7iDrrxlOFLQ6e222Tjw_pCiFLQf&_nc_ohc=ttoyfPrpmfsQ7kNvgEoVIeR&_nc_ht=scontent.fsgn5-5.fna&oh=00_AYBj29rYJKrLb81chh435h6ZAev_cvX18tMnDc6VXQU84w&oe=66E4B125" alt="Login Image">
+        </div> -->
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,165 @@
+.container-fluid {
+    color: #404040;
+    height: 100vh; /* Đảm bảo chiều cao là 100% của viewport */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image: url(https://insmind-gdesign-dam-static.xsbapp.com/9129601838180358231/presigned/718196dfd2ac4bdfa0f1098e95fa0a8622349.png);
+    background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ vùng nền */
+    background-position: center; /* Căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Ngăn không cho hình ảnh lặp lại */
+    width: 100% !important;
+}
+.img_header_login{
+    height: 70px;
+    width: 100px;
+    
+}
+.login-content {
+    display: flex;
+    justify-content: space-between; /* Tạo khoảng cách đều giữa form và hình ảnh */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+.img_login{
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+    display: block;
+}
+.text_header{
+    margin-left: 30px;
+}
+.text_header2{
+    margin-left: 30px;
+}
+.login_header0 {
+        background-color: #FFF; /* Màu nền của thanh header */
+        color: #404040; /* Màu chữ */
+        font-size: 28px; /* Kích thước chữ */
+        position: fixed; /* Giữ cố định thanh header ở đầu trang */
+        z-index: 1000; /* Đảm bảo thanh header nằm trên các phần tử khác */
+        width: 100%; /* Chiều rộng full trang */
+        height: 78px; /* Đặt chiều cao nếu cần */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng để tạo hiệu ứng */
+        display: flex; /* Đảm bảo nội dung bên trong được căn theo flexbox */
+        align-items: center; /* Căn giữa chiều dọc nội dung */
+        padding-left: 20px; /* Tạo khoảng cách bên trong */
+}   
+.row{
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.login-form {
+    margin-top: 80px;
+    margin-right: auto; /* Đẩy form sang bên phải */
+    max-width: 350px;
+    background-color: #FFFFFF;
+    height:500px;
+    width: 450px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 200px;
+    // border: 1px solid rgb(32, 34, 60);
+    margin-right: 20px;
+}
+.login-header {
+    // text-align: center;  
+    color: #404040;
+    margin-bottom: 6px;
+    font-family: Arial;
+    font-size: 22px;
+    margin-left: 10px;
+}
+.login-header-2 {
+    // text-align: center;  
+    color: #404040;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.form-control {
+    background: #F2F2F2;
+    border: none;
+    color: #555;
+    margin: 0 0 6px;
+    width: 90%;
+}
+.form-control:focus {
+    color: #000;
+    background-color: transparent;
+    outline: none;
+    border-color: transparent;    
+}
+  
+.divider-nospace {
+    border-top: 1px solid white;
+}
+
+.password-field {
+    position: relative;
+}
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #404040;
+    cursor: pointer;
+}
+.checkbox-text {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+/* Màu checkbox khi được chọn */
+.checkbox-text input[type="checkbox"]:checked {
+    background-color: #FF379B;
+    border-radius: 1px solid #FF379B;
+    border-color: none;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.register-link {
+    color: #FF379B;
+    text-decoration: none;
+    cursor: pointer;
+}
+.access-right {
+    margin-top: 20px;
+    width: 30%;
+    font-size: 14px;
+    margin-left: 3px;
+    color: #555;
+    background-color: #F2F2F2 !important;
+    // border: 1px solid #202020;
+}
+
+.access-right:focus {
+    border: 1px solid #202020;
+}
+
+
+.login-button {
+    background: #FF469e;
+    color: white;
+    border-radius: 30px;
+    width: 250px;
+    // justify-content: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: none;
+    font-size: 14px ;
+}
+.divider {
+    height: 1px;
+    margin: 10px;
+}

@@ -1,0 +1,169 @@
+@import '../../styles/shared-styles.scss';
+
+.container-fluid {
+    padding-left: 50px; /* Điều chỉnh khoảng cách với cạnh trái */
+    padding-right: 50px; /* Thêm khoảng cách đều cho cạnh phải */
+    color: #404040;
+    height: 1000; /* Đảm bảo chiều cao là 100% của viewport */
+    padding-top: 80px;
+    padding-bottom: 50px;
+    background-image: url(https://insmind-gdesign-dam-static.xsbapp.com/9129601838180358231/presigned/718196dfd2ac4bdfa0f1098e95fa0a8622349.png);
+    background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ vùng nền */
+    background-position: center; /* Căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Ngăn không cho hình ảnh lặp lại */
+    width: 100% !important;
+}
+.img_header_login{
+    height: 70px;
+    width: 100px;
+    
+}
+.login-content {
+    display: flex;
+    justify-content: space-between; /* Tạo khoảng cách đều giữa form và hình ảnh */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+.img_login{
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+    display: block;
+}
+.text_header{
+    margin-left: 30px;
+}
+.text_header2{
+    margin-left: 30px;
+}
+.login_header0 {
+        background-color: #FFF; /* Màu nền của thanh header */
+        color: #404040; /* Màu chữ */
+        font-size: 28px; /* Kích thước chữ */
+        position: fixed; /* Giữ cố định thanh header ở đầu trang */
+        z-index: 1000; /* Đảm bảo thanh header nằm trên các phần tử khác */
+        width: 100%; /* Chiều rộng full trang */
+        height: 78px; /* Đặt chiều cao nếu cần */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng để tạo hiệu ứng */
+        display: flex; /* Đảm bảo nội dung bên trong được căn theo flexbox */
+        align-items: center; /* Căn giữa chiều dọc nội dung */
+        padding-left: 20px; /* Tạo khoảng cách bên trong */
+}
+.row{
+    margin: 0;
+}
+.register-form {
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    border: 0.5px solid rgb(203, 204, 219);
+    align-items: center;
+    justify-content: flex-start; /* Thay đổi để căn form sang bên trái */
+    text-align: left; /* Căn lề trái cho nội dung form */
+    margin-left: 0px; /* Đảm bảo form nằm sát lề trái */
+}
+
+.register-header {
+    text-align: center;
+    color: #404040;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-text {
+    color: #404040;
+}
+
+.form-control {
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    color: #555;
+}
+
+.form-control:focus {
+    color: #000;
+    background-color: #F1F1F1;
+    outline:auto;
+    box-shadow: none;
+    border-color: transparent;
+    padding-left: 0;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: $shopapp-title-color;
+    cursor: pointer;
+}
+
+.checkbox-text {
+    color: #404040;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Màu checkbox khi được chọn */
+.checkbox-text input[type="checkbox"]:checked {
+    border-color: #404040;
+    background-color: $shopapp-tint-color;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.register-link {
+    color: #FF379B;
+    text-decoration: none;
+}
+
+.register-button {
+    background: linear-gradient(to right, $shopapp-tint-color, $shopapp-color);
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+    border: none;
+}
+
+.divider {
+    height: 1px;
+    background-color: #404040;
+    margin: 20px;
+}
+
+.divider-nospace {
+    border-top: 1px solid white;
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #404040;
+    opacity: 1;
+    font-size: 14px;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(243, 165, 42, 0.4);
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(243, 165, 42, 0.4);
+}
+.col-md-6.offset-md-3 {
+    margin-left: 0; /* Xóa căn giữa mặc định của Bootstrap */
+}
